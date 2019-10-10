@@ -1,0 +1,12 @@
+<div id="app-container">
+	<h1>{{title}}</h1>
+	{{#if msg}}
+		<p>{{msg}}</p>
+	{{else}}
+		<form method="POST" action="send" id="email-form">
+			<label for="emailMessage"></label>
+			<textarea id="email-message-text-area" name="emailMessage"></textarea>
+			<button id="submit-email-button" type="submit">Submit</button>
+		</form>
+	{{/if}}
+</div>
