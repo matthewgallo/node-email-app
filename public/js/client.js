@@ -2,11 +2,11 @@ document.addEventListener("DOMContentLoaded", () => {
 	const submitButton = document.querySelectorAll('#submit-email-button');
 	const emailMessage = document.querySelectorAll('#email-message-text-area');
 	if (submitButton) {
-		submitButton[0].addEventListener('click', (event) => {
+		submitButton[0].addEventListener('click', event => {
 			event.preventDefault();
 			const data = {
 				emailMessageValue: emailMessage[0].value,
-			}
+			};
 			(async () => {
 				const rawResponse = await fetch('/send', {
 				  method: 'POST',
@@ -29,12 +29,12 @@ document.addEventListener("DOMContentLoaded", () => {
 					emailForm[0].style.display = 'none';
 				} else {
 					const appContainer = document.querySelectorAll('#app-container');
-					const successMessageElement = document.createElement("P");
-					const successMessage = document.createTextNode("Uh oh, something went wrong!");
-					successMessageElement.appendChild(successMessage);
-					appContainer[0].appendChild(successMessageElement);   
-				}
+					const errorMessageElement = document.createElement("P");
+					const errorMessage = document.createTextNode("Uh oh, something went wrong!");
+					errorMessageElement.appendChild(errorMessage);
+					appContainer[0].appendChild(errorMessageElement);  
+				};
 			  })();
 		});
-	}
+	};
 });
